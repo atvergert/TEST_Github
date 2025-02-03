@@ -18,7 +18,7 @@ header, data = read_capri_table(capri_file)
 # score = 0.1 * air - 1.0 * elec - 0.1 * vdw
 # we will sort the data by this score
 
-idx_list = [header.index(el) for el in ["air", "elec", "vdw","bsa"]]
+idx_list = [header.index(el) for el in ["air", "elec", "vdw", "bsa"]]
 
 score_list = []
 for row in data:
