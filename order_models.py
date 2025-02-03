@@ -15,7 +15,7 @@ capri_file = "capri_ss.csv"
 header, data = read_capri_table(capri_file)
 
 # our score is the combination
-# score = 0.1 * air - 1.0 * elec - 0.1 * vdw
+# score = 0.1 * air - 1.0 * elec - 0.5 * vdw
 # we will sort the data by this score
 
 idx_list = [header.index(el) for el in ["air", "elec", "vdw"]]
@@ -25,7 +25,7 @@ for row in data:
     model = row[0]
     score = 0
     # here we calculate the score assigning the right weight to each term
-    for idx, weight in zip(idx_list, [0.1, -1.0, -0.1]):
+    for idx, weight in zip(idx_list, [0.1, -1.0, -0.5]):
         score += weight * float(row[idx])
     score_list.append([model, score])
 
